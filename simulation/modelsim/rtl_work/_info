@@ -1,0 +1,96 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/UI/smt4/psd/prak/project9-newest/simulation/modelsim
+Eram32x4
+Z1 w1588408942
+Z2 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8D:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd
+Z6 FD:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd
+l0
+L43
+V8A<zj<F>bhf^?LHY``1BQ3
+!s100 aTkH4h=S@jSaDIBK=f9m;3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1588586073
+!i10b 1
+Z9 !s108 1588586073.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|D:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd|
+Z11 !s107 D:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Asyn
+R2
+R3
+R4
+Z14 DEx4 work 7 ram32x4 0 22 8A<zj<F>bhf^?LHY``1BQ3
+l59
+L55
+VXXO;=:`DUZP5Ca`[OCV2F1
+!s100 Fjo?Z[gY>V6?^HQWRS]6f1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Evm
+Z15 w1588585944
+Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R3
+R4
+R0
+Z18 8D:/UI/smt4/psd/prak/project9-newest/VM.vhd
+Z19 FD:/UI/smt4/psd/prak/project9-newest/VM.vhd
+l0
+L6
+Vio7M>?>hWcia[gL_HND>F3
+!s100 gXOERmD]S=DAF?>08IRcX3
+R7
+31
+R8
+!i10b 1
+R9
+Z20 !s90 -reportprogress|300|-93|-work|work|D:/UI/smt4/psd/prak/project9-newest/VM.vhd|
+Z21 !s107 D:/UI/smt4/psd/prak/project9-newest/VM.vhd|
+!i113 1
+R12
+R13
+Aoutput
+R2
+R14
+R16
+R17
+R3
+R4
+DEx4 work 2 vm 0 22 io7M>?>hWcia[gL_HND>F3
+l21
+L16
+VCW_e]6O^h6;T]D`cY>:k60
+!s100 X5o^1Y9_eCmlPSGaa1a=:2
+R7
+31
+R8
+!i10b 1
+R9
+R20
+R21
+!i113 1
+R12
+R13

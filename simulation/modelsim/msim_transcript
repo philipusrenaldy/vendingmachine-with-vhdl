@@ -1,0 +1,85 @@
+# Reading E:/apps/quartusobs/modelsim_ase/tcl/vsim/pref.tcl
+# do PROJ9_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying E:/apps/quartusobs/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:54:33 on May 04,2020
+# vcom -reportprogress 300 -93 -work work D:/UI/smt4/psd/prak/project9-newest/RAM32x4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_mf_components
+# -- Compiling entity RAM32x4
+# -- Compiling architecture SYN of ram32x4
+# End time: 16:54:33 on May 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/UI/smt4/psd/prak/project9-newest/VM.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:54:33 on May 04,2020
+# vcom -reportprogress 300 -93 -work work D:/UI/smt4/psd/prak/project9-newest/VM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity VM
+# -- Compiling architecture OUTPUT of VM
+# -- Loading package altera_mf_components
+# -- Loading entity RAM32x4
+# End time: 16:54:33 on May 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.vm
+# vsim work.vm 
+# Start time: 16:55:05 on May 04,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_mf_components
+# Loading work.vm(output)
+# Loading work.ram32x4(syn)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+add wave -position insertpoint sim:/vm/*
+force -freeze sim:/vm/wren 1 0
+force -freeze sim:/vm/alamat 00000 0
+force -freeze sim:/vm/CLK 1 0, 0 {50 ps} -r 100
+force -freeze sim:/vm/CHITEM 001 0
+force -freeze sim:/vm/MoneyIn 001 0
+run
+run
+run
+run
+force -freeze sim:/vm/CHITEM 011 0
+force -freeze sim:/vm/MoneyIn 100 0
+run
+run
+run
+run
+force -freeze sim:/vm/CHITEM 010 0
+force -freeze sim:/vm/MoneyIn 111 0
+run
+run
+run
+run
+force -freeze sim:/vm/MoneyIn 110 0
+force -freeze sim:/vm/MoneyIn 110 0
+force -freeze sim:/vm/CHITEM 100 0
+run
+run
+run
+run
+# End time: 17:05:17 on May 04,2020, Elapsed time: 0:10:12
+# Errors: 0, Warnings: 0
