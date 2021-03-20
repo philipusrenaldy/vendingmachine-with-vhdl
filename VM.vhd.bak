@@ -1,0 +1,100 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY VM IS
+	PORT (CHITEM	: IN	STD_LOGIC_VECTOR(2 DOWNTO 0);
+			MONEYIN 	: IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+			moneyout	: inout std_logic_vector(1 downto 0);
+			wren		: IN 	STD_LOGIC ;
+			alamat	: IN 	STD_LOGIC_VECTOR(4 DOWNTO 0);
+			q			: OUT	STD_LOGIC_VECTOR(3 DOWNTO 0);
+			CLK 		: IN 	STD_LOGIC);
+END VM;
+
+ARCHITECTURE OUTPUT OF VM IS
+	TYPE STATE_TYPE IS (IDLE,PICKITEM,OUT_I,OUT_2,OUT_3,OUT_4);
+	SIGNAL STATE : STATE_TYPE := IDLE;
+	SIGNAL NEXT_STATE : STATE_TYPE;
+	SIGNAL OUTITEM		: STD_LOGIC_VECTOR(3 DOWNTO 0);
+BEGIN
+	RAM 	: entity work.RAM32x4
+		port map(
+			address	=> alamat,
+			clock		=> clk,
+			data		=> OUTITEM,
+			wren		=> wren,
+			q			=> q
+					);
+	
+	PROCESS(CLK)
+	BEGIN
+		IF (RISING_EDGE(CLK)) THEN
+			STATE <= NEXT_STATE;
+		END IF;
+	END PROCESS;
+	
+	PROCESS (STATE, MONEYIN, CHITEM,OUTITEM)
+		BEGIN
+			CASE STATE IS
+				WHEN IDLE 		=>	IF 	(MONEYIN = "00") THEN NEXT_STATE <= IDLE;
+										ELSIF (MONEYIN = "01") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (MONEYIN = "10") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (MONEYIN = "11") THEN NEXT_STATE <= PICKITEM;
+										ELSE 	NEXT_STATE <= IDLE;
+										END IF;
+				WHEN PICKITEM 	=> IF 	(CHITEM  = "000") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (CHITEM	= "001") THEN NEXT_STATE <= OUT_1;
+										ELSIF (CHITEM	= "010") THEN NEXT_STATE <= OUT_2;
+										ELSIF (CHITEM	= "011") THEN NEXT_STATE <= OUT_3;
+										ELSIF (CHITEM	= "100") THEN NEXT_STATE <= OUT_4;
+										ELSE 	NEXT_STATE <= IDLE;
+										END IF;									
+				
+	
+				WHEN OUT_I 		=> OUTITEM <= "0001";
+				WHEN OUT_2		=> OUTITEM <= "0010";
+				WHEN OUT_3 		=> OUTITEM <= "0011";
+				WHEN OUT_4 		=> OUTITEM <= "0100";
+				WHEN OTHERS 	=> NULL;
+				
+				
+			END CASE;
+	END PROCESS;
+	
+PROCESS (STATE, MONEYIN, CHITEM,moneyout)	
+BEGIN
+			CASE STATE IS
+				WHEN IDLE 		=>	IF 	(MONEYIN = "00") THEN NEXT_STATE <= IDLE;
+										ELSIF (MONEYIN = "01") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (MONEYIN = "10") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (MONEYIN = "11") THEN NEXT_STATE <= PICKITEM;
+										ELSE 	NEXT_STATE <= IDLE;
+										END IF;
+				WHEN PICKITEM 	=> IF 	(CHITEM  = "000") THEN NEXT_STATE <= PICKITEM;
+										ELSIF (CHITEM	= "001") THEN NEXT_STATE <= OUT_1;
+										ELSIF (CHITEM	= "010") THEN NEXT_STATE <= OUT_2;
+										ELSIF (CHITEM	= "011") THEN NEXT_STATE <= OUT_3;
+										ELSIF (CHITEM	= "100") THEN NEXT_STATE <= OUT_4;
+										ELSE 	NEXT_STATE <= IDLE;
+										END IF;																	
+				
+				
+				WHEN OUT_I => IF 	(MONEYIN = "01") THEN  (moneyout = "00");
+								ELSIF (MONEYIN = "10") THEN  (moneyout = "01");
+								ELSE 	(MONEYIN = "11") THEN  (moneyout = "10");
+								END IF;
+				WHEN OUT_2 => IF 	(MONEYIN = "01") THEN  (moneyout = "00");
+								ELSIF (MONEYIN = "10") THEN  (moneyout = "00");
+								ELSE 	(MONEYIN = "11") THEN  (moneyout = "01");
+								END IF;
+				WHEN OUT_3 => IF 	(MONEYIN = "01") THEN  (moneyout = "00");
+								ELSIF (MONEYIN = "10") THEN  (moneyout = "00");
+								ELSE 	(MONEYIN = "11") THEN  (moneyout = "00");
+								END IF;
+				WHEN OUT_4 => 	IF (MONEYIN = "01") THEN  (moneyout = "00");
+								ELSIF (MONEYIN = "10") THEN  (moneyout = "00");
+								ELSE 	(MONEYIN = "11") THEN  (moneyout = "00");
+								END IF;
+END PROCESS;
+END OUTPUT;

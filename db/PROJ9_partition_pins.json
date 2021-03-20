@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "q[0]",
+					"strict" : false
+				},
+				{
+					"name" : "q[1]",
+					"strict" : false
+				},
+				{
+					"name" : "q[2]",
+					"strict" : false
+				},
+				{
+					"name" : "q[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "wren",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "alamat[0]",
+					"strict" : false
+				},
+				{
+					"name" : "alamat[1]",
+					"strict" : false
+				},
+				{
+					"name" : "alamat[2]",
+					"strict" : false
+				},
+				{
+					"name" : "alamat[3]",
+					"strict" : false
+				},
+				{
+					"name" : "alamat[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MoneyIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CHITEM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CHITEM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CHITEM[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
